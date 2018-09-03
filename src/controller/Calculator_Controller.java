@@ -6,7 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 
 /**
- * Created $(DATE)
+ * TO DO
+ * ---------------
+ *
+ *
+ * Bugs
+ * ---------------
+ * W momencie gdy w oknie resul jest wynik, można postawić kolejną kropkę.
  */
 public class Calculator_Controller
 {

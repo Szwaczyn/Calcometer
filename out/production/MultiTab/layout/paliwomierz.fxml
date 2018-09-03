@@ -22,22 +22,36 @@
       <VBox layoutX="180.0" layoutY="36.0" prefHeight="159.0" prefWidth="220.0">
          <children>
             <Label prefHeight="17.0" prefWidth="110.0" text="Ilość kilometrów" />
-            <TextField prefHeight="26.0" prefWidth="223.0" />
+            <TextField fx:id="ilosc_kilometrow" prefHeight="26.0" prefWidth="223.0" />
             <Label prefHeight="17.0" prefWidth="170.0" text="Średnie spalanie na 100 km" />
-            <TextField prefHeight="26.0" prefWidth="223.0" />
+            <TextField fx:id="srednie_spalanie" prefHeight="26.0" prefWidth="223.0" />
             <Label prefHeight="17.0" prefWidth="170.0" text="Cena paliwa" />
-            <TextField prefHeight="26.0" prefWidth="223.0" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Oblicz" />
+            <TextField fx:id="cena_paliwa" prefHeight="26.0" prefWidth="223.0" />
+            <Button mnemonicParsing="false" onAction="#obliczKoszt" prefHeight="25.0" prefWidth="235.0" text="Oblicz">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor></Button>
          </children>
       </VBox>
       <VBox layoutX="416.0" layoutY="35.0" prefHeight="113.0" prefWidth="220.0">
          <children>
             <Label prefHeight="17.0" prefWidth="110.0" text="Budżet" />
-            <TextField prefHeight="26.0" prefWidth="223.0" />
+            <TextField fx:id="budzet" prefHeight="26.0" prefWidth="223.0" />
             <Label prefHeight="17.0" prefWidth="110.0" text="Średnie spalanie" />
-            <TextField prefHeight="26.0" prefWidth="223.0" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="235.0" text="Oblicz" />
+            <TextField fx:id="srednie_spalanie_2" prefHeight="26.0" prefWidth="223.0" />
+            <Label prefHeight="17.0" prefWidth="110.0" text="Cena paliwa" />
+            <TextField fx:id="cena_paliwa_2" prefHeight="26.0" prefWidth="223.0" />
+            <Button mnemonicParsing="false" onAction="#iloscKilometrow" prefHeight="25.0" prefWidth="235.0" text="Oblicz">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
          </children>
       </VBox>
+      <Label fx:id="wynik" layoutX="180.0" layoutY="321.0" prefHeight="39.0" prefWidth="466.0" style="-fx-background-color: #090909;" text="Wynik" textFill="WHITE">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Label>
    </children>
 </Pane>

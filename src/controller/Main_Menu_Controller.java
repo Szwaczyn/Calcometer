@@ -46,6 +46,21 @@ public class Main_Menu_Controller
     }
 
     @FXML
+    public void waluty()
+    {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/layout/waluty.fxml"));
+
+        try {
+            Pane pane = loader.load();
+            Waluty_Controller walController = loader.getController();
+            walController.setMainController(mainController);
+            mainController.setScreen(pane);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     public void wyjscie()
     {
         System.exit(0);

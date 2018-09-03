@@ -21,6 +21,8 @@ public class Calculator_Controller
     String operation;
     boolean egzystencjaKropki = false;
     boolean wynik = false;
+    int dlugoscPierwszejLiczby;
+    char sign = '|';
 
     double liczba_1 = 0, liczba_2 = 0;
 
@@ -92,39 +94,33 @@ public class Calculator_Controller
              */
 
             case "+":{
-                if(wynik)
+                if(wynik == false)
                 {
-                    System.out.println("send to compute");
-                    compute();
+                    sign = '+';
+                    inputVar();
                 }
                 else
                 {
-                    wynik = true;
-                    System.out.println("ChangeWynik");
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby, textInFieldResult.length()));
+                    computeArgs();
+                    sign = '+';
+                    inputVar();
                 }
-                System.out.println("outside");
-                operation = result.getText();
-                checkSign(operation.charAt(operation.length()-1),"+");
             }break;
 
             case "-":{
-                if(wynik)
+                if(wynik == false)
                 {
-                    compute();
+                    sign = '-';
+                    inputVar();
                 }
-                operation = result.getText();
-                checkSign(operation.charAt(operation.length()-1),"-");
-            }break;
-
-            case "*":{
-
-                operation = result.getText();
-                checkSign(operation.charAt(operation.length()-1),"*");
-            }break;
-
-            case "/":{
-                operation = result.getText();
-                checkSign(operation.charAt(operation.length()-1),"/");
+                else
+                {
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby, textInFieldResult.length()));
+                    computeArgs();
+                    sign = '-';
+                    inputVar();
+                }
             }break;
 
             case ".":{
@@ -141,21 +137,81 @@ public class Calculator_Controller
         }
     }
 
+
+
+    /**
+     * Moduł obliczający
+     *  ---------------------------- Do zrobienia --------------------------------
+     */
+
+    public void computeArgs()
+    {
+        double wynikObliczen = 0;
+        switch (sign)
+        {
+            case '+':{
+                wynikObliczen = liczba_1 + liczba_2;
+                textInFieldResult = Double.toString(wynikObliczen);
+                result.setText(textInFieldResult);
+                wynik = false;
+            }break;
+            case '-':{
+                wynikObliczen = liczba_1 - liczba_2;
+                textInFieldResult = Double.toString(wynikObliczen);
+                result.setText(textInFieldResult);
+                wynik = false;
+            }break;
+            case '/':{
+                if(liczba_2 != 0)
+                {
+                    wynikObliczen = liczba_1 / liczba_2;
+                    textInFieldResult = Double.toString(wynikObliczen);
+                    result.setText(textInFieldResult);
+                    wynik = false;
+                }
+                else
+                {
+                    textInFieldResult = "0";
+                    result.setText(textInFieldResult);
+                    wynik = false;
+                    liczba_2 = 0;
+                    liczba_1 = 0;
+                    System.out.println("ok");
+                }
+
+            }break;
+            case '*':{
+                wynikObliczen = liczba_1 * liczba_2;
+                textInFieldResult = Double.toString(wynikObliczen);
+                result.setText(textInFieldResult);
+                wynik = false;
+            }break;
+        }
+    }
+
+    // ---------------------------------- Działające ----------------------------------
+
+    /**
+     * Metoda wprowadzkaca liczby do zmiennych
+     */
+
+    public void inputVar()
+    {
+        dlugoscPierwszejLiczby = textInFieldResult.length();
+        liczba_1 = Double.parseDouble(textInFieldResult);
+        textInFieldResult += sign;
+        result.setText(textInFieldResult);
+        wynik = true;
+    }
+
+    /**
+     * Funkcja przycisku "C"
+     */
     public void clear()
     {
         textInFieldResult = "0";
         result.setText(textInFieldResult);
         egzystencjaKropki = false;
-    }
-
-    /**
-     * Moduł obliczający
-     */
-
-    public void compute()
-    {
-        wynik = false;
-        System.out.println("compute");
     }
 
     /**
@@ -173,26 +229,6 @@ public class Calculator_Controller
         else  {
             operation += zrodlo;
             textInFieldResult = operation;
-            result.setText(textInFieldResult);
-        }
-    }
-
-    /**
-     * Sprawdzenie ostatniego znaku i ewentualne dodanie go.
-     * @param lastSign
-     */
-
-    private void checkSign(char lastSign, String sign)
-    {
-        if(lastSign == '.')
-        {
-            textInFieldResult += "0";
-            result.setText(textInFieldResult);
-        }
-        if(lastSign != '+' && lastSign != '-' && lastSign != '*' && lastSign != '/')
-        {
-            egzystencjaKropki=false;
-            textInFieldResult += sign;
             result.setText(textInFieldResult);
         }
     }

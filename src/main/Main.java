@@ -18,7 +18,7 @@ public class Main extends Application {
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane, 800, 400);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Calc v 0.3");
+        primaryStage.setTitle("Calc v 0.5");
         primaryStage.show();
 
     }

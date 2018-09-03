@@ -101,14 +101,14 @@ public class Calculator_Controller
                 }
                 else
                 {
-                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby, textInFieldResult.length()));
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby+1, textInFieldResult.length()));
                     computeArgs();
                     sign = '+';
                     inputVar();
                 }
             }break;
 
-            case "-":{
+                case "-":{
                 if(wynik == false)
                 {
                     sign = '-';
@@ -116,9 +116,39 @@ public class Calculator_Controller
                 }
                 else
                 {
-                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby, textInFieldResult.length()));
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby+1, textInFieldResult.length()));
                     computeArgs();
                     sign = '-';
+                    inputVar();
+                }
+            }break;
+
+            case "/":{
+                if(wynik == false)
+                {
+                    sign = '/';
+                    inputVar();
+                }
+                else
+                {
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby+1, textInFieldResult.length()));
+                    computeArgs();
+                    sign = '/';
+                    inputVar();
+                }
+            }break;
+
+            case "*":{
+                if(wynik == false)
+                {
+                    sign = '*';
+                    inputVar();
+                }
+                else
+                {
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby+1, textInFieldResult.length()));
+                    computeArgs();
+                    sign = '*';
                     inputVar();
                 }
             }break;
@@ -132,6 +162,15 @@ public class Calculator_Controller
                     textInFieldResult += ".";
                     result.setText(textInFieldResult);
                     egzystencjaKropki = true;
+                }
+            }break;
+
+            case "E":{
+                if(textInFieldResult.length() > dlugoscPierwszejLiczby+1)
+                {
+                    liczba_2 = Double.parseDouble(textInFieldResult.substring(dlugoscPierwszejLiczby+1, textInFieldResult.length()));
+                    computeArgs();
+                    dlugoscPierwszejLiczby = textInFieldResult.length();
                 }
             }break;
         }
@@ -176,7 +215,6 @@ public class Calculator_Controller
                     wynik = false;
                     liczba_2 = 0;
                     liczba_1 = 0;
-                    System.out.println("ok");
                 }
 
             }break;
@@ -200,6 +238,7 @@ public class Calculator_Controller
         dlugoscPierwszejLiczby = textInFieldResult.length();
         liczba_1 = Double.parseDouble(textInFieldResult);
         textInFieldResult += sign;
+        egzystencjaKropki = false;
         result.setText(textInFieldResult);
         wynik = true;
     }
@@ -211,6 +250,11 @@ public class Calculator_Controller
     {
         textInFieldResult = "0";
         result.setText(textInFieldResult);
+        liczba_1 = 0;
+        liczba_2 = 0;
+        wynik = false;
+        sign = '|';
+        dlugoscPierwszejLiczby = 0;
         egzystencjaKropki = false;
     }
 

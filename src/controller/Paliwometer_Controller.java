@@ -50,6 +50,7 @@ public class Paliwometer_Controller
     @FXML
     public void iloscKilometrow()
     {
+        sprawdzPoprawnosc();
         double budzetD = Double.parseDouble(budzet.getText());
         double srednieSpalanieD = Double.parseDouble(srednie_spalanie_2.getText());
         double cenaPaliwaD = Double.parseDouble(cena_paliwa_2.getText());

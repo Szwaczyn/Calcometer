@@ -61,6 +61,21 @@ public class Main_Menu_Controller
     }
 
     @FXML
+    public void bmi()
+    {
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/layout/bmi.fxml"));
+
+        try {
+            Pane pane = loader.load();
+            Bmi_Controller bmi = loader.getController();
+            bmi.setMainController(mainController);
+            mainController.setScreen(pane);
+        } catch (Exception e){
+            System.out.println(e);
+        }
+    }
+
+    @FXML
     public void wyjscie()
     {
         System.exit(0);

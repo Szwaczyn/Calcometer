@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="800.0" stylesheets="@../style/main_style.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Bmi_Controller">
+   <children>
+      <Button layoutX="15.0" layoutY="50.0" mnemonicParsing="false" onAction="#wstecz" prefHeight="25.0" prefWidth="120.0" text="Wstecz">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <Label contentDisplay="CENTER" layoutX="-3.0" opacity="0.76" prefHeight="36.0" prefWidth="807.0" style="-fx-background-color: #12a0b3;" text="                                                  Calcometr " textAlignment="CENTER" textFill="#2827a3" textOverrun="WORD_ELLIPSIS">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="202.0" fitWidth="245.0" layoutX="532.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" />
+      <VBox layoutX="207.0" layoutY="63.0" prefHeight="230.0" prefWidth="213.0">
+         <children>
+            <HBox prefHeight="23.0" prefWidth="194.0">
+               <children>
+                  <RadioButton fx:id="woman" mnemonicParsing="false" text="Kobieta          ">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="a" />
+                     </toggleGroup>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </RadioButton>
+                  <RadioButton fx:id="man" mnemonicParsing="false" text="Meżczyzna" toggleGroup="$a">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </RadioButton>
+               </children>
+            </HBox>
+            <Pane prefHeight="19.0" prefWidth="213.0" />
+            <Label text="Waga" />
+            <TextField fx:id="waga" />
+            <Label text="Wzrost" />
+            <TextField fx:id="wzrost" />
+            <Button mnemonicParsing="false" onAction="#oblicz" prefHeight="25.0" prefWidth="225.0" text="Oblicz">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+            <StackPane prefHeight="150.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="komunikat" textFill="#e11c1c" />
+               </children>
+            </StackPane>
+         </children>
+      </VBox>
+   </children>
+</Pane>

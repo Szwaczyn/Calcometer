@@ -21,11 +21,16 @@
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
-      <Button layoutX="15.0" layoutY="140.0" mnemonicParsing="false" onAction="#wyjscie" prefHeight="25.0" prefWidth="120.0" text="Wyjście">
+      <Button layoutX="15.0" layoutY="140.0" mnemonicParsing="false" onAction="#bmi" prefHeight="25.0" prefWidth="120.0" text="BMI">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></Button>
       <Button layoutX="15.0" layoutY="110.0" mnemonicParsing="false" onAction="#waluty" prefHeight="25.0" prefWidth="120.0" text="Waluty">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="15.0" layoutY="170.0" mnemonicParsing="false" onAction="#wyjscie" prefHeight="25.0" prefWidth="120.0" text="Wyjście">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

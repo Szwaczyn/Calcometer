@@ -6,6 +6,7 @@
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
@@ -24,7 +25,11 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <ImageView fitHeight="202.0" fitWidth="245.0" layoutX="532.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageOnScreen" fitHeight="230.0" fitWidth="295.0" layoutX="512.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../icon/question(1).png" />
+         </image>
+      </ImageView>
       <VBox layoutX="207.0" layoutY="63.0" prefHeight="230.0" prefWidth="213.0">
          <children>
             <HBox prefHeight="23.0" prefWidth="194.0">

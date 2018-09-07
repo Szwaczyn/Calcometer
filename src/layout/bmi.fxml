@@ -59,9 +59,18 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
+            <Button mnemonicParsing="false" onAction="#wyczysc" prefHeight="25.0" prefWidth="225.0" text="Wyczyść">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
             <StackPane prefHeight="150.0" prefWidth="200.0">
                <children>
-                  <Label fx:id="komunikat" textFill="#e11c1c" />
+                  <Label fx:id="result">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </Label>
                </children>
             </StackPane>
          </children>

@@ -22,7 +22,7 @@ public class Main extends Application {
 
         primaryStage.setResizable(false);
 
-        primaryStage.setTitle("Calc v 0.79");
+        primaryStage.setTitle("Calcometr 1");
         primaryStage.show();
 
     }

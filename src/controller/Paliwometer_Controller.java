@@ -34,37 +34,53 @@ public class Paliwometer_Controller
     @FXML
     public void obliczKoszt()
     {
-        sprawdzPoprawnosc();
-        double iloscKilometrowInt = Integer.parseInt(ilosc_kilometrow.getText());
-        double srednieSpalanieInt = Integer.parseInt(srednie_spalanie.getText());
-        double cenaPaliwaInt = Integer.parseInt(cena_paliwa.getText());
+        double iloscKilometrowInt = sprawdzPoprawnosc(ilosc_kilometrow.getText());
+        double srednieSpalanieInt = sprawdzPoprawnosc(srednie_spalanie.getText());
+        double cenaPaliwaInt = sprawdzPoprawnosc(cena_paliwa.getText());
 
-        double obliczenia = srednieSpalanieInt / 100 * cenaPaliwaInt * iloscKilometrowInt;
-        obliczenia *= 100;
-        obliczenia = Math.round(obliczenia);
-        obliczenia /= 100;
+        if(iloscKilometrowInt == 0.0 || srednieSpalanieInt == 0.0 || cenaPaliwaInt == 0.0)
+        {
+            wynik.setText("Błędna wartość");
+        }
+        else
+        {
+            double obliczenia = srednieSpalanieInt / 100 * cenaPaliwaInt * iloscKilometrowInt;
+            obliczenia *= 100;
+            obliczenia = Math.round(obliczenia);
+            obliczenia /= 100;
 
-        wynik.setText("Koszt podróży: " + obliczenia + " zł");
+            wynik.setText("Koszt podróży: " + obliczenia + " zł");
+        }
     }
 
     @FXML
     public void iloscKilometrow()
     {
-        sprawdzPoprawnosc();
-        double budzetD = Double.parseDouble(budzet.getText());
-        double srednieSpalanieD = Double.parseDouble(srednie_spalanie_2.getText());
-        double cenaPaliwaD = Double.parseDouble(cena_paliwa_2.getText());
+        double budzetD = sprawdzPoprawnosc(budzet.getText());
+        double srednieSpalanieD = sprawdzPoprawnosc(srednie_spalanie_2.getText());
+        double cenaPaliwaD = sprawdzPoprawnosc(cena_paliwa_2.getText());
 
-        wynik.setText("Ilosc kilometrow: " + Math.round(budzetD / (srednieSpalanieD / 100 * cenaPaliwaD)) + " km");
+        if(budzetD == 0.0 || srednieSpalanieD == 0.0 || cenaPaliwaD == 0.0)
+        {
+            wynik.setText("Błędna wartość");
+        }
+        else
+        {
+            wynik.setText("Ilosc kilometrow: " + Math.round(budzetD / (srednieSpalanieD / 100 * cenaPaliwaD)) + " km");
+        }
     }
 
     /**
      * To Do
      */
 
-    private void sprawdzPoprawnosc()
+    private Double sprawdzPoprawnosc(String inputText)
     {
-
+        try {
+            return Double.parseDouble(inputText);
+        } catch (NumberFormatException e) {
+            return 0.0;
+        }
     }
 
     @FXML

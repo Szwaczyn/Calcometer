@@ -231,6 +231,7 @@ public class Calculator_Controller
                 wynik = false;
             }break;
         }
+        egzystencjaKropki = true;
     }
 
     // ---------------------------------- Działające ----------------------------------
